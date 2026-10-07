@@ -1,4 +1,4 @@
-/* STYLE.CSS: colors, fonts, animations. Change colors in :root at the top. */
+
 :root{--bg:#0b0b0f;--card:#15151c;--line:#26262f;--pink:#ff7eb6;--light:#ffd1e6;--text:#ececf1;--muted:#a8a8b8;--navbg:rgba(11,11,15,.85)}
 [data-theme=light]{--bg:#fff7fb;--card:#fff;--line:#f3cfe0;--pink:#e0408a;--light:#b32a68;--text:#2a1722;--muted:#6e5563;--navbg:rgba(255,247,251,.88)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -73,7 +73,7 @@ footer{position:relative;z-index:1;text-align:center;padding:30px;color:var(--mu
 @media(max-width:700px){nav{flex-wrap:wrap}nav ul{order:3;width:100%;overflow-x:auto}nav ul a{white-space:nowrap}section{padding:120px 6% 40px}#home{padding-top:130px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
-/* ===== Traditional hand-drawn gallery ===== */
+
 .masonry{columns:3 240px;column-gap:18px}
 .dcard{break-inside:avoid;margin-bottom:18px;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card);cursor:zoom-in;transition:.35s;animation:rise .6s both}
 .dcard img{width:100%;display:block;min-height:140px;transition:.5s}
