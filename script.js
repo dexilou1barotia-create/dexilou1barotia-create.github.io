@@ -1,5 +1,4 @@
-/* SCRIPT.JS: animations, video list, dark/light mode. Edit your videos in WORKS below. */
-// ===== ✏️ EDIT HERE: rename the title and desc of each animation =====
+
 const WORKS=[
  {title:"Animation 1",desc:"2D animation",id:"1SgsiLILx0V_bKN2FW0_2uagMDXjDAyW2"},
  {title:"Animation 2",desc:"2D animation",id:"1-MrChaLwdNyPLjlQLV94vHOX5zKmc-R8"},
@@ -34,14 +33,13 @@ function closeM(){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
 
-// dark / light mode
+
 const root=document.documentElement,tb=document.getElementById('theme');
 function setTheme(t){root.dataset.theme=t;tb.textContent=t==='dark'?'☀️ Light':'🌙 Dark';try{localStorage.setItem('theme',t)}catch(e){}}
 try{const s=localStorage.getItem('theme');if(s)setTheme(s)}catch(e){}
 tb.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
 
-// typing effect
-// ✏️ EDIT HERE: the typing words in the home page
+
 const words=["2D Animator","Traditional 2D Animator","3D Animator","Storyboard Artist"];
 let w=0,c=0,del=false;const el=document.getElementById('typed');
 (function type(){
@@ -59,12 +57,11 @@ const links=[...document.querySelectorAll('nav ul a')];
 const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{threshold:.5});
 document.querySelectorAll('section').forEach(s=>so.observe(s));
 
-// cursor glow
+
 const g=document.getElementById('glow');
 document.addEventListener('mousemove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
 
-// ===== ✏️ EDIT HERE: traditional hand-drawn pictures =====
-// Each picture is a Google Drive file ID. To give a drawing its own title, use: {id:"FILE_ID",title:"My Title"}
+
 const DRAWINGS=[
   "1KKuNMD6YZ_OLs2hKDxhX_H2PQem6Q7zw",
   "12E6t8kADb5E0I3oFJWcq7-fO-4Sgt8FK",
