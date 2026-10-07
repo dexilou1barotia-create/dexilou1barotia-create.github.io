@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dexilou D. Barotia | Animator Portfolio</title>
+<meta name="description" content="Animator portfolio of Dexilou Dizon Barotia featuring traditional hand-drawn 2D animation, digital 2D animation, and 3D animation and modeling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" id="glow"></div>
+<div class="blob b1"></div><div class="blob b2"></div>
+
+<nav>
+  <div class="logo"><span class="ball"></span>Dexilou D. Barotia</div>
+  <ul>
+    <li><a href="#home" class="on">🏠 Home</a></li><li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li>
+    <li><a href="#works">Animations</a></li><li><a href="#drawings">Drawings</a></li><li><a href="#contact">Contact</a></li>
+    <li><button id="theme" aria-label="Toggle dark or light mode">☀️ Light</button></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <div class="hero-text">
+    <p class="hi">Hello, I'm</p>
+    <h1>Dexilou Dizon Barotia</h1>
+    <p class="role"><span id="typed"></span><span class="cursor"></span></p>
+    <!-- ✏️ EDIT HERE: intro text -->
+    <p class="lead">I create traditional hand-drawn 2D animations, digital 2D animations, and 3D modeling and animation. I'm a fresh BSIT graduate majoring in Programming, and I'm looking for an animator role where I can use my creativity and technical skills to bring ideas to life.</p>
+    <div class="btns">
+      <a class="btn fill" href="#works">View My Animations</a>
+      <a class="btn" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+  <div class="photo"><img src="profile.jpg" alt="Portrait of Dexilou Dizon Barotia"></div>
+</section>
+
+<section id="about" class="reveal">
+  <h2>About Me</h2>
+  <!-- ✏️ EDIT HERE: about me text -->
+  <p class="about-p">I create 2D and 3D animations, including traditional hand-drawn animation, and I enjoy bringing ideas and stories to life through movement. With a background in ICT and a degree in Information Technology, I combine creativity and technology to create engaging and meaningful animations.</p>
+  <div class="card info">
+    <p><b>Full Name:</b> Dexilou Dizon Barotia</p>
+    <p><b>Age:</b> 21</p>
+    <p><b>Place of Birth:</b> City of Makati</p>
+    <p><b>Sex:</b> Female</p>
+    <p><b>Civil Status:</b> Single</p>
+    <p><b>Nationality:</b> Filipino</p>
+    <p><b>Religion:</b> Roman Catholic</p>
+    <p><b>Location:</b> Calauan, Laguna, Philippines PH</p>
+  </div>
+</section>
+
+<!-- ✏️ EDIT HERE: education -->
+<section id="education" class="reveal">
+  <h2>Education</h2>
+  <div class="tl">
+    <div class="item"><h3>BS Information Technology</h3><p>Polytechnic University of the Philippines, Calauan Campus</p><span>2023–2027</span></div>
+    <div class="item"><h3>Senior High School: TVL-ICT Strand</h3><p>Philippine Women's University-Sta.Cruz Laguna</p><span>2021 – 2023</span></div>
+    <div class="item"><h3>Junior High School</h3><p>Dayap National High School-Main</p><span>2017 – 2021</span></div>
+    <div class="item"><h3>Elementary</h3><p>Makativille Elementary School • Panoypoy Elementary School</p><span>2011 – 2016</span></div>
+  </div>
+</section>
+
+<!-- ✏️ EDIT HERE: skills (one <span class="tag"> each) -->
+<section id="skills" class="reveal">
+  <h2>Skills</h2>
+  <div class="tags">
+    <span class="tag">Traditional 2D Animation</span>
+    <span class="tag">2D Animation</span>
+    <span class="tag">3D Modeling</span>
+    <span class="tag">3D Animation</span>
+    <span class="tag">Storyboarding</span>
+    <span class="tag">Character Design</span>
+    <span class="tag">Programming</span>
+    <span class="tag">Creativity</span>
+    <span class="tag">Teamwork</span>
+  </div>
+</section>
+
+<section id="works" class="reveal">
+  <h2>My Animations</h2>
+  <p style="color:var(--muted);margin:-8px 0 22px">Click a project to watch it right here.</p>
+  <div class="grid" id="gallery"></div>
+  <p style="margin-top:24px;color:var(--muted)">GitHub: <a href="https://github.com/dexilou1barotia-create" target="_blank" rel="noopener">github.com/dexilou1barotia-create</a></p>
+  <div class="modal" id="modal" onclick="closeM()">
+    <div class="mbox" onclick="event.stopPropagation()">
+      <button class="x" onclick="closeM()" aria-label="Close">✕</button>
+      <h3 id="mtitle"></h3>
+      <iframe id="player" allow="autoplay; fullscreen" allowfullscreen title="Animation player"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ✏️ EDIT HERE: title and text of the drawings section -->
+<section id="drawings" class="reveal">
+  <h2>Traditional Hand-Drawn Art</h2>
+  <p style="color:var(--muted);margin:-8px 0 22px">My hand-drawn artworks. Click any drawing to view it bigger.</p>
+  <div class="masonry" id="drawgrid"></div>
+  <div class="more"><button class="btn fill" id="moreBtn">Show More Drawings ✨</button></div>
+  <div class="lightbox" id="lb" onclick="closeLB()">
+    <button class="x" onclick="closeLB()" aria-label="Close">✕</button>
+    <button class="nav prev" onclick="event.stopPropagation();stepLB(-1)" aria-label="Previous">‹</button>
+    <img id="lbimg" alt="" onclick="event.stopPropagation()">
+    <button class="nav next" onclick="event.stopPropagation();stepLB(1)" aria-label="Next">›</button>
+    <p id="lbcap"></p>
+  </div>
+</section>
+
+<!-- ✏️ EDIT HERE: email, phone, location -->
+<section id="contact" class="reveal">
+  <h2>Get in Touch</h2>
+  <div class="grid">
+    <div class="card"><h3>📧 Email</h3><a href="mailto:dexilou1.barotia@gmail.com">dexilou1.barotia@gmail.com</a></div>
+    <div class="card"><h3>📱 Phone</h3><a href="tel:+639638426779">0963 842 6779</a></div>
+    <div class="card"><h3>📍 Location</h3><p>Calauan, Laguna, Philippines</p></div>
+  </div>
+</section>
+
+<footer>© 2026 Dexilou Dizon Barotia</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
