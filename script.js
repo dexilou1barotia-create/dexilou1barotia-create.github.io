@@ -50,7 +50,7 @@ let w=0,c=0,del=false;const el=document.getElementById('typed');
   else{del=false;w=(w+1)%words.length;setTimeout(type,300)}
 })();
 
-// scroll reveal + active nav link
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
 const links=[...document.querySelectorAll('nav ul a')];
