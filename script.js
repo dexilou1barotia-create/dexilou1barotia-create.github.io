@@ -1,68 +1,68 @@
 
-const WORKS=[
- {title:"Animation 1",desc:"2D animation",id:"1SgsiLILx0V_bKN2FW0_2uagMDXjDAyW2"},
- {title:"Animation 2",desc:"2D animation",id:"1-MrChaLwdNyPLjlQLV94vHOX5zKmc-R8"},
- {title:"Animation 3",desc:"3D animation",id:"1-hh0upKaC5C38gCdmi6UV9RrM_MYWJ_F"},
- {title:"Animation 4",desc:"3D animation",id:"1-_8le4wab33gKt2WUc_L8IQ6T8wjkt6t"},
- {title:"Animation 5",desc:"3D animation",id:"1-QH2QKUfwyxE9XV-1SRpTDgE_SAosddJ"},
- {title:"Animation 6",desc:"3D animation",id:"101SiRCEgJVPh2_GT3rl9tCEKw8VF9ElL"},
- {title:"Animation 7",desc:"2D animation",id:"1-5ADOFR0hO4zhBuJXK0erCxBa_dRqmF-"},
- {title:"Animation 8",desc:"2D animation",id:"1-An5fL2EoEdWWZ2nL7jzMhUfjh29lybu"}
+const WORKS = [
+  { title: "Animation 1", desc: "2D animation", id: "1SgsiLILx0V_bKN2FW0_2uagMDXjDAyW2" },
+  { title: "Animation 2", desc: "2D animation", id: "1-MrChaLwdNyPLjlQLV94vHOX5zKmc-R8" },
+  { title: "Animation 3", desc: "3D animation", id: "1-hh0upKaC5C38gCdmi6UV9RrM_MYWJ_F" },
+  { title: "Animation 4", desc: "3D animation", id: "1-_8le4wab33gKt2WUc_L8IQ6T8wjkt6t" },
+  { title: "Animation 5", desc: "3D animation", id: "1-QH2QKUfwyxE9XV-1SRpTDgE_SAosddJ" },
+  { title: "Animation 6", desc: "3D animation", id: "101SiRCEgJVPh2_GT3rl9tCEKw8VF9ElL" },
+  { title: "Animation 7", desc: "2D animation", id: "1-5ADOFR0hO4zhBuJXK0erCxBa_dRqmF-" },
+  { title: "Animation 8", desc: "2D animation", id: "1-An5fL2EoEdWWZ2nL7jzMhUfjh29lybu" }
 ];
-const gal=document.getElementById('gallery');
-WORKS.forEach(wk=>{
-  const d=document.createElement('div');d.className='card';
-  d.innerHTML='<div class="thumb">🎬<img loading="lazy" alt=""></div><h3></h3><small></small>';
-  const im=d.querySelector('img');
-  im.onerror=()=>im.remove();
-  im.src='https://drive.google.com/thumbnail?id='+wk.id+'&sz=w640';
-  im.alt=wk.title+' thumbnail';
-  d.querySelector('h3').textContent=wk.title;
-  d.querySelector('small').textContent=wk.desc;
-  d.querySelector('.thumb').onclick=()=>openM(wk);
+const gal = document.getElementById('gallery');
+WORKS.forEach(wk => {
+  const d = document.createElement('div'); d.className = 'card';
+  d.innerHTML = '<div class="thumb">🎬<img loading="lazy" alt=""></div><h3></h3><small></small>';
+  const im = d.querySelector('img');
+  im.onerror = () => im.remove();
+  im.src = 'https://drive.google.com/thumbnail?id=' + wk.id + '&sz=w640';
+  im.alt = wk.title + ' thumbnail';
+  d.querySelector('h3').textContent = wk.title;
+  d.querySelector('small').textContent = wk.desc;
+  d.querySelector('.thumb').onclick = () => openM(wk);
   gal.appendChild(d);
 });
-function openM(wk){
-  document.getElementById('mtitle').textContent=wk.title;
-  document.getElementById('player').src='https://drive.google.com/file/d/'+wk.id+'/preview';
+function openM(wk) {
+  document.getElementById('mtitle').textContent = wk.title;
+  document.getElementById('player').src = 'https://drive.google.com/file/d/' + wk.id + '/preview';
   document.getElementById('modal').classList.add('open');
 }
-function closeM(){
+function closeM() {
   document.getElementById('modal').classList.remove('open');
-  document.getElementById('player').src='';
+  document.getElementById('player').src = '';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeM() });
 
 
-const root=document.documentElement,tb=document.getElementById('theme');
-function setTheme(t){root.dataset.theme=t;tb.textContent=t==='dark'?'☀️ Light':'🌙 Dark';try{localStorage.setItem('theme',t)}catch(e){}}
-try{const s=localStorage.getItem('theme');if(s)setTheme(s)}catch(e){}
-tb.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+const root = document.documentElement, tb = document.getElementById('theme');
+function setTheme(t) { root.dataset.theme = t; tb.textContent = t === 'dark' ? '☀️ Light' : '🌙 Dark'; try { localStorage.setItem('theme', t) } catch (e) { } }
+try { const s = localStorage.getItem('theme'); if (s) setTheme(s) } catch (e) { }
+tb.onclick = () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
 
 
-const words=["2D Animator","Traditional 2D Animator","3D Animator","Storyboard Artist"];
-let w=0,c=0,del=false;const el=document.getElementById('typed');
-(function type(){
-  const word=words[w];el.textContent=word.substring(0,c);
-  if(!del&&c<word.length){c++;setTimeout(type,90)}
-  else if(!del){del=true;setTimeout(type,1300)}
-  else if(c>0){c--;setTimeout(type,45)}
-  else{del=false;w=(w+1)%words.length;setTimeout(type,300)}
+const words = ["2D Animator", "Traditional 2D Animator", "3D Animator", "Storyboard Artist"];
+let w = 0, c = 0, del = false; const el = document.getElementById('typed');
+(function type() {
+  const word = words[w]; el.textContent = word.substring(0, c);
+  if (!del && c < word.length) { c++; setTimeout(type, 90) }
+  else if (!del) { del = true; setTimeout(type, 1300) }
+  else if (c > 0) { c--; setTimeout(type, 45) }
+  else { del = false; w = (w + 1) % words.length; setTimeout(type, 300) }
 })();
 
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
-const links=[...document.querySelectorAll('nav ul a')];
-const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{threshold:.5});
-document.querySelectorAll('section').forEach(s=>so.observe(s));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('show') }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+const links = [...document.querySelectorAll('nav ul a')];
+const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id)) } }), { threshold: .5 });
+document.querySelectorAll('section').forEach(s => so.observe(s));
 
 
-const g=document.getElementById('glow');
-document.addEventListener('mousemove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+const g = document.getElementById('glow');
+document.addEventListener('mousemove', e => { g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px' });
 
 
-const DRAWINGS=[
+const DRAWINGS = [
   "1KKuNMD6YZ_OLs2hKDxhX_H2PQem6Q7zw",
   "12E6t8kADb5E0I3oFJWcq7-fO-4Sgt8FK",
   "1D2W8A18ONhJUt_NufmFTHyZIldrkjR4X",
@@ -102,42 +102,58 @@ const DRAWINGS=[
   "1HbXeOig6TmeRYtDAy1M-gwXLQmien73x",
   "1kbw_XBtKQa3W0jnupXukoEnACQhzqpE_",
   "1gYwrHLjPgv223RRKmVrgmdaMdSIamf3k"
-].map((d,i)=>typeof d==='string'?{id:d,title:'Hand-Drawn Artwork '+(i+1)}:d);
-const dgrid=document.getElementById('drawgrid'),moreBtn=document.getElementById('moreBtn');
-let shown=0;const STEP=12;
-function showMore(){
-  DRAWINGS.slice(shown,shown+STEP).forEach((d,k)=>{
-    const i=shown+k,f=document.createElement('div');f.className='dcard';
-    f.style.animationDelay=(k*60)+'ms';
-    f.innerHTML='<img loading="lazy" alt=""><span></span>';
-    const im=f.querySelector('img');
-    im.alt=d.title;
-    im.onerror=()=>f.remove();
-    im.src='https://drive.google.com/thumbnail?id='+d.id+'&sz=w600';
-    f.querySelector('span').textContent=d.title;
-    f.onclick=()=>openLB(i);
+].map((d, i) => typeof d === 'string' ? { id: d, title: 'Hand-Drawn Artwork ' + (i + 1) } : d);
+const dgrid = document.getElementById('drawgrid'), moreBtn = document.getElementById('moreBtn');
+let shown = 0; const STEP = 12;
+function showMore() {
+  DRAWINGS.slice(shown, shown + STEP).forEach((d, k) => {
+    const i = shown + k, f = document.createElement('div'); f.className = 'dcard';
+    f.style.animationDelay = (k * 60) + 'ms';
+    f.innerHTML = '<img loading="lazy" alt=""><span></span>';
+    const im = f.querySelector('img');
+    im.alt = d.title;
+    im.onerror = () => f.remove();
+    im.src = 'https://drive.google.com/thumbnail?id=' + d.id + '&sz=w600';
+    f.querySelector('span').textContent = d.title;
+    f.onclick = () => openLB(i);
     dgrid.appendChild(f);
   });
-  shown=Math.min(shown+STEP,DRAWINGS.length);
-  if(shown>=DRAWINGS.length)moreBtn.parentElement.style.display='none';
+  shown = Math.min(shown + STEP, DRAWINGS.length);
+  if (shown >= DRAWINGS.length) moreBtn.parentElement.style.display = 'none';
 }
-moreBtn.onclick=showMore;showMore();
-let cur=0;const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbcap=document.getElementById('lbcap');
-function openLB(i){
-  cur=(i+DRAWINGS.length)%DRAWINGS.length;
-  lbimg.src='https://drive.google.com/thumbnail?id='+DRAWINGS[cur].id+'&sz=w1600';
-  lbimg.alt=DRAWINGS[cur].title;
-  lbcap.textContent=DRAWINGS[cur].title+'  •  '+(cur+1)+' / '+DRAWINGS.length;
+moreBtn.onclick = showMore; showMore();
+let cur = 0; const lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg'), lbcap = document.getElementById('lbcap');
+function openLB(i) {
+  cur = (i + DRAWINGS.length) % DRAWINGS.length;
+  lbimg.src = 'https://drive.google.com/thumbnail?id=' + DRAWINGS[cur].id + '&sz=w1600';
+  lbimg.alt = DRAWINGS[cur].title;
+  lbcap.textContent = DRAWINGS[cur].title + '  •  ' + (cur + 1) + ' / ' + DRAWINGS.length;
   lb.classList.add('open');
 }
-function stepLB(n){openLB(cur+n)}
-function closeLB(){lb.classList.remove('open');lbimg.src=''}
-document.addEventListener('keydown',e=>{
-  if(!lb.classList.contains('open'))return;
-  if(e.key==='Escape')closeLB();
-  if(e.key==='ArrowRight')stepLB(1);
-  if(e.key==='ArrowLeft')stepLB(-1);
+function stepLB(n) { openLB(cur + n) }
+function closeLB() { lb.classList.remove('open'); lbimg.src = '' }
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowRight') stepLB(1);
+  if (e.key === 'ArrowLeft') stepLB(-1);
 });
-let tx=0;
-lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
-lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)stepLB(dx<0?1:-1)});
+let tx = 0;
+lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX }, { passive: true });
+lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) stepLB(dx < 0 ? 1 : -1) });
+
+
+const GH = 'https://github.com/dexilou1barotia-create/';
+const REPOS = [
+  { name: 'Animation-Projects', desc: 'My animation projects repository.', tag: 'Animation Projects' }
+];
+const rg = document.getElementById('repogrid');
+REPOS.forEach(r => {
+  const a = document.createElement('a');
+  a.className = 'card repo'; a.href = GH + r.name; a.target = '_blank'; a.rel = 'noopener';
+  a.innerHTML = '<span class="rtag"></span><h3></h3><p></p><small>Open on GitHub ↗</small>';
+  a.querySelector('.rtag').textContent = r.tag;
+  a.querySelector('h3').textContent = r.name;
+  a.querySelector('p').textContent = r.desc;
+  rg.appendChild(a);
+});
